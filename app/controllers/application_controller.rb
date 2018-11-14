@@ -3,14 +3,16 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
- def index
+  def index
     self.add_to_cart(params[:product])
     render '/products/index'
   end
-   def cart
+  
+  def cart
     session[:cart] ||= []
   end
-   def add_to_cart(item)
+  
+  def add_to_cart(item)
     if item && !item.strip.empty? 
       self.cart << item.strip
     end
