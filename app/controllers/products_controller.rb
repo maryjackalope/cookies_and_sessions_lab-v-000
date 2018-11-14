@@ -4,5 +4,5 @@ class ProductController < ApplicationController
   end
   
   def add 
-    
+    cart << params
 
