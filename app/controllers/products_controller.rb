@@ -1,1 +1,3 @@
-class ProductController 
+class ProductController < ApplicationController
+  
+  def index
