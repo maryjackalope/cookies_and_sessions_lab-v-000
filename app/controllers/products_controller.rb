@@ -3,5 +3,6 @@ class ProductController < ApplicationController
   def index
   end
   
-  def add
+  def add 
+    
 
