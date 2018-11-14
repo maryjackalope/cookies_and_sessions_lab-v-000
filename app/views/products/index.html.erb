@@ -1,12 +1,11 @@
-<% if cart.empty? %>
-  No items to display.
-<% else %>
-  <% cart.each do |item| %>
-    <li><%= item %></li>
-  <% end %>
+<form action="/" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="product">Product Name</label>
+  <input type="text" name="product" id="product">
+  <input type="submit" value="Add To Cart" id="add to cart">
+</form>
+ <ul>
+<% session[:cart]&.each do |item| %>
+  <li><%= item %></li>
 <% end %>
- <h2>Add an item!</h2>
-<%= form_tag ({controller: 'products', action: 'add', method: 'post'}) do %>
-    <%= text_field_tag 'product' %>
-    <%= submit_tag "add to cart" %>
-<% end %>
+</ul>
